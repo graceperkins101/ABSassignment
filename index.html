@@ -1,1 +1,244 @@
-d
+<!doctype html>
+<html>
+<head>
+	<style>
+	body{
+		background-color: white; 
+		}
+	h1 and h2 { font-family: "Times New Roman";
+		font-style: normal;
+		font-weight: 100;
+		font-size: 250%;
+		text-align: center;	
+		}
+	p{  font-family: "Times New Roman", "serif";
+	    text-align: left;
+			}
+	li{ text-align: left; }
+	</style>
+	
+
+
+<head>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+<script src="data.js" ="text/javascript"></script>
+</head>
+
+
+
+<body>
+<center>
+<a href="downloads.html">Downloads</a>
+<br><br>
+
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiMTFvb2ltbyIsImEiOiJjamhobmF6ZjcwNTBhM2RtcHUzYXA0Z2UzIn0.ESHvQaFGrXF8vR5uJ4fJVw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9'
+});
+map.on('load',function(){
+	map.addLayer({
+		'id': 'data',
+		'type': 'fill-extrusion',
+		'source':{
+			'type': 'geojson',
+			'data': data
+		},
+		'paint': {
+			'fill-extrusion-height':{
+				'property': 'go8pbos',
+				"stops": [
+				[0, 88],
+				[1, 10000]
+				]
+			},
+			'fill-extrusion-color':{
+				'property': 'go8pbos',
+				"stops": [
+				[0,'white'],
+				[44, 'green'],
+				[88, 'orange']
+				]
+			},
+			'fill-extrusion-opacity':0.9
+		}
+	})
+})
+</script>	
+
+
+	
+<meta charset="UTF-8">
+<title>Indigenous population in NSW</title>
+</head>
+<h1><center><strong>Indigenous population growth in NSW</strong></center></h1>
+<body>
+<div class="ex1">
+
+
+<h2>STORY</h2>
+<p>
+	The Australian census asks citizens if they are of Aboriginal and/or Torres Strait Islander origin. 
+  <br><br>
+  Before 1967, indigenous people were not recognised as Australian citizens and the census question on indigenous status was used to exclude indigenous people from the official population statistics of Australia.
+  <br><br>
+  After the 1967 referendum, the commonwealth could make laws to protect indigenous people as they were now included in the official electoral population of Australia. 
+</p>
+<br><br>
+
+
+<h2>POPULATION GROWTH AND DISTRIBUTION IN NSW</h2>
+<p>
+	Total population of indigenous Australians in 2011 (map):
+</p>
+<br>
+<img src= "photo1.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+  
+  
+<p>
+	Total population of indigenous Australians in 2016 (map):
+</p>
+<br>
+<img src= "photo2.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+
+<p>
+  The maps above refer to the number of indigenous people in NSW. The map on the left-hand side refers to data gathered by the 2011 census, and the map on the right-hand side refers to the 2016 census.
+</p>
+  
+  
+  
+<p>
+  Legend for total population of indigenous Australians in 2011 and 2016
+</p>
+<br>
+<img src= "photo3.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+
+<p>
+  The two maps share the same ‘legend’ and the colour variation of white to orange to a crimson describes the indigenous population count. The darker the hue, the higher the number of indigenous people live in that area.
+</p>
+
+<h2>POPULATION DISTRIBUTION</h2>
+<p>
+  During the colonisation of Australia, we saw the decrease of indigenous people living on the coast of NSW. This was largely due to smallpox and other diseases, but also the forceful removal from British soldier. 
+  <br><br>
+  However, looking at the 2011 (left) and 2016 (right) map, we can see the gradual movement back towards the coast again.
+  <br><br>
+  In 2011, the indigenous population was already highly concentrated in coastal NSW especially the city of Sydney and Wollongong and has continued to grow by 2016. The places where the indigenous population has declined are located in inner NSW, in areas with small rural populations.  
+  <br><br>
+  The population growth was not evenly distributed and is migrating towards more urban areas. This trend could symbolise:
+</p>
+<br>
+<p>
+  <ol>
+    <li>A greater support for the indigenous community in urban areas especially in high concentrated areas like Sydney etc</li>
+    <li>Could be the way data for the census is collected and distributed. Some Indigenous groups and communities believe that the way the census is carried out disadvantages them.</li>
+  </ol>
+</p>
+<br><br>
+  
+<h2>POPULATION GROWTH</h2>
+<p>
+	The indigenous population in NSW was once.... but is now growing at a rapid rate. 
+  <br><br>
+  There are several possible reasons for the rapidly growing visibility of Indigenous Australians in our population statistics. 
+  <br><br>
+  Firstly, indigenous Australians have a higher number of children on average than non-indigenous Australians (ABS). The highest number of people in an age category for indigenous people was 0-4yrs of age in both 2011 (21,405 people) and 2016 (22,106 people). This comes from my data excel sheet which categorised ages into 14 groups: 0-4yrs, 5-9yrs, 10-14yrs, 15-19yrs, 20-24yrs, 25-29yrs, 30-34yrs, 35-39yrs, 40-44yrs, 45-49yrs, 50-54yrs, 55-59yrs, 60-64yrs, and 65+yrs.
+  <br><br>
+  The percentage of indigenous people in the 0-4 age category account for 14.16% of the whole indigenous population in NSW (in 2011). And although it has declined to 13.16% in 2016, it is still very high compared to non-indigenous which was 6.63% (in 2011) and 6.22% (in 2016). The largest number of people in an age category for non-indigenous was 35-39 years (488,126 people) in 2011 and 30-34 years (540,177 people) in 2016. 
+  <br><br>
+  Secondly, children resulting from relationships between indigenous and non-indigenous often identify as indigenous
+  <br><br>
+  Thirdly, some of the reasons for increased population growth could be due to a lack of visibility. For example, the way in which the census has been conducted in the past and the higher number of indigenous Australians living in inner Australia could have resulted in a lower number of indigenous Australians filling in the census. 
+  <br><br>
+  Despite the lack of finite reasons for the growing indigenous population growth rate it is important to note that New South Wales has the biggest number of indigenous people than all the other states and territories in Australia (ABS). Therefore it is data on indigenous in NSW is very important.
+  <br><br>
+  Additionally, research needs to be done on the support services for aging indigenous Australians. Non-indigenous Australians aged 65 and over increased from 14.72% in 2011 to 16.28% in 2016. This is a very high number of the population that is old and the long livelihoods of non-indigenous people suggest there is some support for an aging population. However, only 4.84% of the indigenous population was 65 years and older in 2011 and this decreased to 4.70% in 2016. This could be the result of a lack of support for indigenous people in terms of access to government funds or a lower socioeconomic rate than non-indigenous Australians. 
+</p>
+<br><br>
+  
+  
+<p>
+  Total population of indigenous Australians over 65 in 2011
+</p>
+<br>
+<img src= "photo4.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+
+<p>
+  Total population of non-indigenous Australians over 65 in 2011
+</p>
+<br>
+<img src= "photo5.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+  
+  
+ <p>
+  Total population of indigenous Australians over 65 in 2016
+</p>
+<br>
+<img src= "photo6.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+  
+  
+<p>
+  Total population of non-indigenous Australians over 65 in 2016
+</p>
+<br>
+<img src= "photo7.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+  
+<p>
+  Legend for blue maps
+</p>
+<br>
+<img src= "photo8.png" width="500px" class="contain">
+<p>From: Screenshot from QGIS</p>
+<br><br>
+  
+  
+<h2>MY DATA</h2>
+<p>
+	My data came from the ABS census website https://datapacks.censusdata.abs.gov.au/datapacks/. My data topic was "Indigenous Status by Age by Sex" (G07) from the 2016 Census Data Pack on Population and Housing. It focuses on the number of individuals in NSW who identified as Indigenous (Aboriginal and/or Torres Strait Islander origin), non-indigenous and not-stated. 
+  <br><br>
+  I also incorporated the previous data on “Indigenous Status by Age by Sex” (B07) from the 2011 census, to see the direction of growth and geographical distribution of the population over time. 
+</p>
+<br><br>
+  
+  
+<h2>SUMMARY</h2>
+<p>
+	Despite the mass of data collected by the Australian census, only my G07 data set provided a section on Indigenous (Aboriginal and/or Torres Strait Islander origin) population. Majority of the data collected by the census splits into age or gender, rather than ethnicity. Therefore my story had to focus on the population growth and distribution of Indigenous people in NSW, rather then education or socioeconomic rates for indigenous people. 
+  <br><br>
+  The ABS website gives statistics and more detail into the lives of indigenous Australians; eg. Education rates and income growth. But the lack of an indigenous column within most of the data packs (except G07) does not show figures specifically on the indigenous population. Therefore, it is hard to flesh out a story on the population of indigenous Australians and the future direction for them, if the only data comes from the ABS. 
+  <br><br>
+  Despite the challenges with the census data, the question on indigenous status(in the census)  brings awareness of the location and geographical spread of the indigenous population. In particular, understanding the gap between non-indigenous and indigenous Australians. This information has the power to influence future policymaking for indigenous Australians and create a more even distribution between the indigenous and non-indigenous in the future.
+  <br><br>
+  The migration of the indigenous population towards more urban areas enhances the possibility of access to support services and this can be supported by the rapidly growing population. There needs to be better organisation of the census data to fully understand the reasons behind the changes in the indigenous population, but the data above paints a relatively positive picture of for the future of indigenous.
+</p>
+<br><br>
+  
+  
+<h2>References</h2>
+<p>
+	The Conversation <https://theconversation.com/census-2016-whats-changed-for-indigenous-australians-79836>
+  <br><br>
+  ABS <http://www.abs.gov.au/ausstats/abs@.nsf/mf/4705.0>
+</p>
+<br><br>
+</body>
+</html>
