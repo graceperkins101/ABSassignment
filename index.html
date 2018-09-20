@@ -19,13 +19,6 @@
 	
 
 
-<head>
-<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js"></script>
-<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css" rel='stylesheet' />
-<script src="data.js" ="text/javascript"></script>
-</head>
-
-
 <body>
 <center>
 <a href="references.html">References</a>
@@ -44,39 +37,55 @@
 <div class="ex1">
 <br><br>
 
-
-<div id='map' style='width: 800px; height: 600px;'></div>
+<head>
+	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js"></script>
+	<script src='./data.js'></script>
+	<script src='./data2.js'></script>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css" rel='stylesheet' />
+	<style>
+		body { margin:0; padding:0; float:center; }
+		#map { width: 400%; height:400px; float: center}
+		#map2 { width: 500%; height: 400px; margin-center: center}
+	</style>
+</head>
+	
+<div id='map'></div>
+<div id='map2'></div>
+	
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiMTFvb2ltbyIsImEiOiJjamhobmF6ZjcwNTBhM2RtcHUzYXA0Z2UzIn0.ESHvQaFGrXF8vR5uJ4fJVw';
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFk7WxlaW5lam9oYW5zb24iLCJhIjoiY2lzczduYzJ4MDZrODJucGh0Mm1xbmVxNCJ9.i7q4iT8FFgh_y5v4we5UhQ';
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9'
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v9",
+    center: [151.004105, 33.013002],
+    pitch: 45,
+    bearing: -17.6,
+    zoom: 9
 });
-map.on('load',function(){
+map.on("load",function() {
 	map.addLayer({
-		'id': 'data',
-		'type': 'fill-extrusion',
-		'source':{
-			'type': 'geojson',
-			'data': data
+		"id": "data",
+		"type": 'fill-extrusion',
+		"source":{
+			"type": "geojson",
+			"data": data
 		},
 		'paint': {
-			'fill-extrusion-height':{
-				'property': 'go8pbos',
-				"stops": [
-				[0, 800],
-				[1, 10000]
-				]
-			},
 			'fill-extrusion-color':{
-				'property': 'go8pbos',
+				'property': '2016',
 				"stops": [
-				[0,'white'],
-				[44, 'green'],
-				[88, 'orange']
+					[0, 'white'],
+					[1, 'orange']
 				]
 			},
-			'fill-extrusion-opacity':0.9
+			'fill-extrusion-height':{
+				'property': 'Difference',
+				"stops": [
+					[0.2,0],
+					[44, 50000]
+				]
+			},
+			'fill-extrusion-opacity': 1
 		}
 	})
 })
